@@ -1,0 +1,18 @@
+version: "3"
+services:
+    byl_solr:
+        build:
+            context: .
+            dockerfile: Dockerfile
+        restart: always
+        image: bylsolr:7.7.3
+        ports:
+          - "8983:8983"
+        volumes:
+          - solrdata:/opt/solr/server/solr/document/data
+          - ./managed-schema:/opt/solr/server/solr/document/conf/managed-schema
+        ports:
+          - "8983:8983"
+volumes:
+    solrdata:
+        driver: local          

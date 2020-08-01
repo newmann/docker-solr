@@ -115,6 +115,10 @@
     <field name="_version_" type="plong" indexed="false" stored="false"/>
     <field name="_root_" type="string" indexed="true" stored="false" docValues="false" />
     <field name="_text_" type="text_general" indexed="true" stored="false" multiValued="true"/>
+    
+    <!--自定义字段-->
+    <field name="title" type="cn_text" indexed="true" stored="true" multiValued="false"/>
+    <field name="content" type="cn_text" indexed="true" stored="true" multiValued="false"/>
 
     <!-- This can be enabled, in case the client does not know what fields may be searched. It isn't enabled by default
          because it's very expensive to index everything twice. -->
@@ -557,7 +561,7 @@
         <filter class="solr.ArabicStemFilterFactory"/>
       </analyzer>
     </fieldType>
-   <!-- chinexe participle smartch -->
+   <!-- chinexe participle smartcn -->
    <fieldType name="cn_text" class="solr.TextField" positionIncrementGap="100">
       <analyzer type="index">
              <tokenizer class="org.apache.lucene.analysis.cn.smart.HMMChineseTokenizerFactory"/>
