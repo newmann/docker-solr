@@ -5,7 +5,7 @@ FROM solr:7.7.3
 LABEL maintainer="Newmannhu <Newmannhu@qq.com>"
 
 #创建名字为document的core
-RUN create_core -c document
+RUN /opt/solr/bin/solr create -c document
 #将定制化的配置文件复制到document的conf下
 ADD hanlp-managed-schema.xml /opt/solr/server/solr/document/conf/managed-schema
 
@@ -18,4 +18,3 @@ ADD hanlp-lucene-plugin.jar /opt/solr/server/solr-webapp/webapp
 #复制字库
 ADD data /opt/solr/server/solr-webapp/webapp/data
 
-EXPOSE 8983
