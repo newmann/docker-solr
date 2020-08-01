@@ -16,8 +16,8 @@ RUN cp -r /opt/solr/server/solr/configsets/_default/conf ./conf
 ADD hanlp-1.7.8.jar /opt/solr/server/solr-webapp/webapp
 
 #复制hanlp-lucene-plugin.jar至镜像/opt/solr/server/solr-webapp/webapp下
-ADD hanlp-lucene-plugin.jar /opt/solr/server/solr-webapp/webapp
+ADD hanlp-lucene-plugin-1.1.6.jar /opt/solr/server/solr-webapp/webapp
 
 #复制字库
-ADD data /opt/solr/server/solr-webapp/webapp/data
+#ADD data /opt/solr/server/solr-webapp/webapp/data
 
