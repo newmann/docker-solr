@@ -10,7 +10,7 @@ RUN mkdir document
 WORKDIR /opt/solr/server/solr/document
 RUN echo 'name=document' > core.properties
 RUN mkdir data
-RUN cp /opt/solr/server/solr/configsets/_default/conf ./conf
+RUN cp -r /opt/solr/server/solr/configsets/_default/conf ./conf
 
 #复制hanlp-portable.jar至镜像/opt/solr/server/solr-webapp/webapp下
 ADD hanlp-1.7.8.jar /opt/solr/server/solr-webapp/webapp
