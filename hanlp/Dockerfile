@@ -6,6 +6,8 @@ LABEL maintainer="Newmannhu <Newmannhu@qq.com>"
 
 #创建名字为document的core
 RUN create_core -c document
+#将定制化的配置文件复制到document的conf下
+ADD hanlp-managed-schema.xml /opt/solr/server/solr/document/conf/managed-schema
 
 #复制hanlp-portable.jar至镜像/opt/solr/server/solr-webapp/webapp下
 ADD hanlp-1.7.8.jar /opt/solr/server/solr-webapp/webapp
