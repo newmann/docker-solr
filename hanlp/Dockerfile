@@ -1,5 +1,5 @@
 #基于solr的7版
-FROM solr:7
+FROM solr:7.7.3
 
 #维护人的信息
 LABEL maintainer="Newmannhu <Newmannhu@qq.com>"
