@@ -5,9 +5,12 @@ FROM solr:7.7.3
 LABEL maintainer="Newmannhu <Newmannhu@qq.com>"
 
 #创建名字为document的core
-RUN /opt/solr/bin/solr create -c document
-#将定制化的配置文件复制到document的conf下
-ADD hanlp-managed-schema.xml /opt/solr/server/solr/document/conf/managed-schema
+WORKDIR /opt/solr/server/solr
+RUN mkdir document
+WORKDIR /opt/solr/server/solr/document
+RUN echo 'name=document' > core.properties
+RUN mkdir data
+RUN cp /opt/solr/server/solr/configsets/_default/conf ./conf
 
 #复制hanlp-portable.jar至镜像/opt/solr/server/solr-webapp/webapp下
 ADD hanlp-1.7.8.jar /opt/solr/server/solr-webapp/webapp
